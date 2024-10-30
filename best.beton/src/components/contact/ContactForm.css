@@ -1,0 +1,105 @@
+/* Wrapper for the contact form */
+.contact-form-wrapper {
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  backdrop-filter: blur(8px); /* Blur effect for background */
+}
+
+/* Header of the contact form */
+.contact-form-header {
+  margin-bottom: 20px;
+}
+
+.contact-form-header h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Form styling */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Input group styling */
+.input-group {
+  margin-bottom: 15px;
+  position: relative;
+}
+
+/* Input and textarea styling */
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+  background: rgba(255, 255, 255, 0.9); /* Slightly transparent for a layered effect */
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  border-color: #aaa;
+}
+
+/* Textarea specific styling */
+.input-group textarea {
+  height: 100px;
+  resize: none;
+}
+
+/* Submit button styling */
+.submit-btn {
+  
+
+  background-color: #f1c40f;
+  color: white;
+  transform: translateZ(5px); /* Effet d'avancement en 3D au survol */
+  box-shadow: 0 4px 8px rgba(126, 116, 116, 0.664); /* Ombre plus prononcée */
+
+
+
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 30px;
+  cursor: pointer;
+ 
+  backdrop-filter: blur(10px); /* Effet de flou d'arrière-plan */
+  box-shadow: 0 4px 8px rgba(126, 116, 116, 0.664); /* Ombre plus prononcée */
+
+}
+
+.submit-btn:hover {
+  background-color: rgba(238, 195, 5, 0.8); /* Couleur au survol */
+  transform: translateY(-3px); /* Légère élévation */
+}
+
+
+
+
+
+/* Invalid input styling for errors */
+.input-group.invalid input {
+  border-color: #ff4b4b;
+}
+
+.input-group.invalid::after {
+  content: '✖';
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ff4b4b;
+  font-size: 18px;
+}
