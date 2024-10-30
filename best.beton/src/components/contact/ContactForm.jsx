@@ -64,7 +64,7 @@ const ContactForm = () => {
             placeholder="Your comments..."
             value={formData.message}
             onChange={handleChange}
-            required
+            
           />
         </div>
         <Link to={'/'}  className="submit-btn">
