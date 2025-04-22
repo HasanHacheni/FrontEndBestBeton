@@ -1,0 +1,130 @@
+/* Container for the product grid */
+.Prod {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Product grid layout */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  padding: 40px;
+  justify-content: center;
+  align-items: stretch;
+}
+
+/* Individual product card styling */
+.product-card {
+  width: 100%;
+  background-color: rgba(150, 139, 139, 0.6);
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(5px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  animation: fadeInUp 0.5s ease-out; /* Animation d'apparition */
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Image styling */
+.product-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  animation: scaleIn 0.5s ease-out; /* Animation d'apparition de l'image */
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Name styling */
+.product-name {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 10px 0;
+  color: #333;
+  animation: fadeIn 0.5s ease-out; /* Animation d'apparition du texte */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 3D Button styling */
+.pro-button-3d {
+  background: linear-gradient(145deg, #f5c518, #f8c305); /* Dégradé bleu */
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none; /* Supprimer le soulignement du lien */
+  display: inline-block;
+  margin-top: 10px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Ombre portée */
+}
+
+.pro-button-3d::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  transform: translateZ(-1px); /* Effet 3D */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pro-button-3d:hover {
+  transform: translateY(-2px) translateZ(10px); /* Effet 3D au survol */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Ombre plus prononcée */
+}
+
+.pro-button-3d:active {
+  transform: translateY(0) translateZ(5px); /* Effet de pression */
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}

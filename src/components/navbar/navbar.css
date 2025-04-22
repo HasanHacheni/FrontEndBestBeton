@@ -1,0 +1,139 @@
+/* Navbar Container */
+.navbar-container {
+  
+  width: 100%;
+  background-color: #333; /* Couleur sombre par défaut */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  border-bottom: 2px solid #333;
+  z-index: 0;
+  padding: 1px 0;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Navbar Content */
+.navbar-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Logo Section */
+.logo-section .logo {
+  display: flex;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.logo .Best {
+  color: #f1c40f; /* Jaune vif */
+}
+
+.logo .Beton {
+  color: #ffffff; /* Blanc pur */
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+/* Navigation Links */
+.nav-links a {
+  color: #f1f1f1; /* Blanc légèrement atténué */
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border: 2px solid transparent;
+  border-radius: 25px;
+  background: linear-gradient(145deg, #2a2a2a, #333);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.nav-links a:hover {
+  color: #333;
+  background: linear-gradient(145deg, #f1c40f, #d4ac0d);
+  border-color: #f1c40f;
+  box-shadow: 0 6px 12px rgba(255, 193, 7, 0.8);
+  transform: scale(1.05);
+}
+
+/* Mode Nuit/Jour et Sélecteur de Langue */
+.utilities {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.mode-toggle {
+  padding: 10px 15px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  background-color: #444;
+  color: #fff;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.mode-toggle:hover {
+  background-color: #f1c40f;
+  color: #333;
+}
+
+.language-select {
+  padding: 8px 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
+.language-select:hover,
+.language-select:focus {
+  border-color: #f1c40f;
+}
+
+/* Mode sombre spécifique */
+.navbar-container.dark {
+  background-color: #222; /* Couleur sombre */
+}
+
+.navbar-container.dark .mode-toggle {
+  background-color: #f1c40f;
+  color: #333;
+}
+
+.navbar-container.dark .language-select {
+  background-color: #444;
+  color: #fff;
+  border: 1px solid #666;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .utilities {
+    margin-top: 20px;
+    flex-direction: column;
+    gap: 10px;
+  }
+}

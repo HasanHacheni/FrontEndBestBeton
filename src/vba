@@ -1,0 +1,131 @@
+Sub SupprimerDoublonsGarderPremierDernier()
+    Dim ws As Worksheet
+    Dim lastRow As Long
+    Dim dict As Object
+    Dim i As Long
+    Dim col As String ' Colonne à traiter (modifiez si nécessaire)
+    Dim currentMatricule As Variant
+    Dim prevMatricule As Variant
+    Dim nextMatricule As Variant
+    
+    Set ws = ActiveSheet ' Utilisation de la feuille active (modifiez si besoin)
+    col = "A" ' Modifiez selon la colonne à traiter
+    
+    lastRow = ws.Cells(ws.Rows.Count, col).End(xlUp).Row
+    Set dict = CreateObject("Scripting.Dictionary")
+    
+    ' Première passe : Stocker les premières et dernières occurrences
+    For i = 1 To lastRow
+        currentMatricule = ws.Cells(i, col).Value
+        If Not dict.exists(currentMatricule) Then
+            dict.Add currentMatricule, Array(i, i) ' Enregistre la première et dernière position
+        Else
+            dict(currentMatricule)(1) = i ' Met à jour la dernière occurrence
+        End If
+    Next i
+
+    ' Deuxième passe : Supprimer les doublons intermédiaires et les doublons adjacents
+    For i = lastRow To 2 Step -1 ' Commence de la dernière ligne vers la deuxième
+        currentMatricule = ws.Cells(i, col).Value
+        prevMatricule = ws.Cells(i - 1, col).Value
+        nextMatricule = ws.Cells(i + 1, col).Value
+        
+        ' Vérifier si la ligne courante est égale au matricule de la ligne précédente et de la ligne suivante
+        If currentMatricule = prevMatricule And currentMatricule = nextMatricule Then
+            ' Supprimer la ligne si le matricule est le même que celui des lignes adjacentes
+            ws.Rows(i).Delete
+            lastRow = lastRow - 1 ' Ajuster le dernier numéro de ligne après suppression
+            i = i - 1 ' Revenir une ligne en arrière pour vérifier la nouvelle ligne actuelle
+        End If
+    Next i
+
+    MsgBox "Nettoyage terminé !", vbInformation
+End Sub
+
+Sub CalculerHeuresDeTravail()
+    Dim ws As Worksheet
+    Dim lastRow As Long
+    Dim matriculeColumn As Integer
+    Dim dateTempsColumn As Integer
+    Dim matricules As Collection
+    Dim currentMatricule As Variant
+    Dim entryTime As Date
+    Dim exitTime As Date
+    Dim totalHours As Double
+    Dim i As Long
+    Dim resultWs As Worksheet
+    Dim resultRow As Long
+    Dim firstEntry As Boolean
+    Dim resultSheetName As String
+    
+    ' Assigner la feuille active à la variable ws
+    Set ws = ActiveSheet ' Remplacer par le nom exact de votre feuille si nécessaire
+    matriculeColumn = 1 ' Colonne A pour Matricule
+    dateTempsColumn = 3 ' Colonne C pour Date/Temps
+    
+    ' Déterminer la dernière ligne de la feuille active
+    lastRow = ws.Cells(ws.Rows.Count, matriculeColumn).End(xlUp).Row
+    
+    ' Créer une collection pour stocker les matricules uniques
+    Set matricules = New Collection
+    
+    ' Ajouter les matricules uniques à la collection
+    On Error Resume Next ' Empêche les erreurs si le matricule existe déjà dans la collection
+    For i = 2 To lastRow
+        matricules.Add ws.Cells(i, matriculeColumn).Value, CStr(ws.Cells(i, matriculeColumn).Value)
+    Next i
+    On Error GoTo 0 ' Réactive la gestion des erreurs normales
+    
+    ' Définir le nom de la feuille des résultats en incluant le nom de la feuille source
+    resultSheetName = "HeuresDeTravail_" & ws.Name
+    
+    ' Vérifier si la feuille existe déjà, sinon la créer
+    On Error Resume Next
+    Set resultWs = ThisWorkbook.Sheets(resultSheetName)
+    If resultWs Is Nothing Then
+        Set resultWs = ThisWorkbook.Sheets.Add
+        resultWs.Name = resultSheetName
+    Else
+        resultWs.Cells.Clear ' Si la feuille existe, nettoyer son contenu
+    End If
+    On Error GoTo 0
+    
+    ' Ajouter les en-têtes du tableau
+    resultWs.Cells(1, 1).Value = "Matricule"
+    resultWs.Cells(1, 2).Value = "Heures de Travail"
+    
+    ' Initialiser la ligne où les résultats seront insérés
+    resultRow = 2
+    
+    ' Boucle pour calculer les heures de travail pour chaque matricule
+    For Each currentMatricule In matricules
+        totalHours = 0
+        firstEntry = True ' Indicateur pour savoir si c'est la première entrée pour ce matricule
+        
+        ' Boucle pour parcourir les lignes et calculer les heures pour ce matricule
+        For i = 2 To lastRow
+            If ws.Cells(i, matriculeColumn).Value = currentMatricule Then
+                If firstEntry Then ' Première entrée
+                    entryTime = ws.Cells(i, dateTempsColumn).Value
+                    firstEntry = False
+                Else ' Sortie
+                    exitTime = ws.Cells(i, dateTempsColumn).Value
+                    ' Vérification pour éviter des erreurs si les dates sont mal saisies
+                    If IsDate(entryTime) And IsDate(exitTime) Then
+                        totalHours = totalHours + (exitTime - entryTime) * 24 ' Convertir en heures
+                    End If
+                    firstEntry = True ' Réinitialiser pour la prochaine entrée
+                End If
+            End If
+        Next i
+        
+        ' Insérer les résultats dans la nouvelle feuille
+        If totalHours > 0 Then
+            resultWs.Cells(resultRow, 1).Value = currentMatricule
+            resultWs.Cells(resultRow, 2).Value = totalHours
+            resultRow = resultRow + 1
+        End If
+    Next currentMatricule
+    
+    MsgBox "Calcul des heures de travail terminé !", vbInformation
+End Sub

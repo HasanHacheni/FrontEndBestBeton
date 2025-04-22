@@ -1,0 +1,188 @@
+.slab-calculator-container {
+    text-align: center;
+    margin-top: 30px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+    height: 70vh;
+    transition: all 0.3s ease-in-out;
+}
+
+.header {
+    margin-bottom: 20px;
+    animation: slideDown 0.5s ease-out forwards;
+}
+
+.logo {
+    font-size: 2.5em;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo .best {
+    color: #7f8c8d; /* Gris */
+    animation: colorChange 3s infinite alternate;
+}
+
+.logo .beton {
+    color: #f1c40f; /* Jaune */
+    margin-left: 5px;
+    animation: colorChange 3s infinite alternate-reverse;
+}
+
+.title h1 {
+    font-size: 2em;
+    font-weight: 700;
+    color: #34495e;
+    letter-spacing: 1.5px;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+.dal-calculator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease;
+}
+
+.dal-calculator.calculated {
+    justify-content: space-between;
+}
+
+.slab-calculator {
+    width: 100%;
+    max-width: 600px;
+    background: linear-gradient(145deg, #ffffff, #e6e6e6);
+    border-radius: 15px;
+    box-shadow: 8px 8px 16px #d1d1d1, -8px -8px 16px #ffffff;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out, background 0.5s ease;
+    transform: scale(1);
+    animation: scaleUp 0.4s ease-in-out forwards;
+}
+.header {
+    margin-bottom: 20px;
+    animation: slideDown 0.5s ease-out forwards;
+    cursor: pointer; /* Pour indiquer que le header est cliquable */
+}
+
+/* Nouvelle classe pour afficher le header en mode flex */
+.header.calculated {
+    display: flex; /* Met le header en display flex */
+    justify-content: space-between; /* Aligne les éléments dans le header */
+    align-items: center; /* Centre verticalement les éléments */
+    background-color: #ecf0f1; /* Vous pouvez ajuster le fond si nécessaire */
+    padding: 20px; /* Ajoute du padding autour des éléments */
+    border-radius: 10px; /* Arrondir les coins si nécessaire */
+}
+
+
+.threedd-calculator {
+    width: 55%;
+    margin-left: 20px;
+    background-color: #ecf0f1;
+    border-radius: 15px;
+    box-shadow: 6px 6px 12px #b0b0b0, -6px -6px 12px #ffffff;
+    transition: transform 0.5s ease-in-out, background-color 0.5s ease;
+    animation: slideInRight 0.5s ease forwards;
+}
+
+.results-container {
+    margin-top: 30px;
+    background-color: #ecf0f1;
+    border-radius: 10px;
+    padding: 20px;
+    width: 90%;
+    text-align: left;
+    box-shadow: 6px 6px 12px #b0b0b0, -6px -6px 12px #ffffff;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(0.8);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes colorChange {
+    0% {
+        color: #7f8c8d; /* Gris */
+    }
+    100% {
+        color: #f1c40f; /* Jaune */
+    }
+}
+
+/* Ajout d'une classe pour une animation au clic */
+.slab-calculator.animate {
+    background: linear-gradient(145deg, #f1f1f1, #e0e0e0);
+    transform: scale(1.05);
+}
+/* Custom Link Styles */
+/* Bouton style pour les liens */
+.button-link {
+    display: inline-block;
+    padding: 12px 24px;            /* Taille de l'espacement interne */
+    color: #fff;                   /* Couleur du texte */
+    background-color: #f5c518;     /* Couleur de fond */
+    border-radius: 8px;            /* Coins arrondis */
+    text-decoration: none;         /* Supprime le soulignement */
+    font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-align: center;            /* Centre le texte */
+  }
+  
+  /* Hover effect */
+  .button-link:hover {
+    background-color: #f5c518;     /* Couleur de fond au survol */
+    transform: scale(1.05);        /* Légère augmentation de la taille au survol */
+  }
+  
+  /* Active state */
+  .button-link:active {
+    background-color: #f5c518;     /* Couleur de fond au clic */
+    transform: scale(0.98);        /* Légère réduction de la taille au clic */
+  }
+  

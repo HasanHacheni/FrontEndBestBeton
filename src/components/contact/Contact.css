@@ -1,0 +1,9 @@
+.contact-page {
+
+    background-size:cover ;  /* L'image est entièrement contenue dans l'espace sans déformation */
+    background-position: center center;  /* Centrer l'image */
+   
+    width: 100%;
+    min-height: 100vh;
+  }
+  

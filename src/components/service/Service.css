@@ -1,0 +1,164 @@
+/* Main page setup */
+.Service-Page {
+   
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 1s ease-in-out, moveBackground 15s infinite alternate;
+}
+
+/* Smooth fade-in for the page */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Background movement effect */
+@keyframes moveBackground {
+    0% { background-position: center top; }
+    100% { background-position: center bottom; }
+}
+
+/* Certificate section with stunning transition */
+.Certificate {
+    margin-top: 30px;
+    padding: 30px;
+    max-width: 900px;
+    width: 85%;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.6));
+    border-radius: 10px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+    animation: slideIn 1.5s ease-out;
+}
+
+/* Slide-in effect */
+@keyframes slideIn {
+    from { transform: translateY(100px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Hover effect for certificate cards */
+.Certificate:hover {
+    transform: scale(1.05);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+}
+
+/* Icon styling */
+.service-icon {
+    font-size: 4rem;
+    color: #f1c40f;
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 20px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover effect for icons */
+.service-icon:hover {
+    transform: rotate(15deg) scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Service text and description */
+.certificate h3 {
+    font-size: 2rem;
+    color: #333;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-top: 20px;
+    transition: color 0.3s ease-in-out;
+}
+
+.certificate p {
+    font-size: 1.1rem;
+    color: #777;
+    line-height: 1.5;
+    margin-top: 10px;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Hover effect for text */
+.certificate:hover h3, .certificate:hover p {
+    color: #f1c40f;
+}
+
+/* Service container */
+.portfolio-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 30px;
+}
+
+/* Certificate individual styling */
+.certificate-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+}
+
+/* Certificate styling */
+.certificate {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.certificate h3 {
+    font-size: 1.6rem;
+    color: #333;
+}
+
+.certificate p {
+    color: #555;
+    font-size: 1rem;
+}
+
+/* Footer */
+footer {
+    width: 100%; /* Le footer prend toute la largeur */
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: relative; 
+    bottom: 0;
+}
+
+/* Responsiveness for small screens */
+@media (max-width: 768px) {
+    .Certificate {
+        margin-top: 20%;
+        padding: 15px;
+    }
+
+    .service-icon {
+        font-size: 3rem;
+        padding: 15px;
+    }
+
+    .portfolio-container {
+        margin-top: 20px;
+    }
+
+    .certificate-list {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}

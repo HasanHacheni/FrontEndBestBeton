@@ -1,0 +1,242 @@
+/* Global styles */
+* {
+
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Container styling - Desktop (1025px and above) */
+.contact-container {
+ 
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 40px;
+  background: linear-gradient(135deg, #f0f0f0, #d9d9d9);
+  border-radius: 12px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Logo styling with gradient animation */
+.contact-logo {
+  font-size: 2.5em;
+  font-weight: bold;
+  background: linear-gradient(90deg, #cba135, #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradientShift 3s infinite;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Label styling */
+.contact-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 500;
+  text-align: left;
+}
+
+/* Input and textarea styling */
+.contact-input,
+.contact-textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-input:focus,
+.contact-textarea:focus {
+  border-color: #cba135;
+  box-shadow: 0 0 8px rgba(203, 161, 53, 0.4);
+  outline: none;
+}
+
+.contact-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Button with animated gradient */
+.contact-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(90deg, #767879, #f1c40f);  background-size: 200% 200%;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+  animation: gradientMove 3s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.contact-button:hover {
+  box-shadow: 0 0 10px rgba(53, 184, 86, 0.5);
+}
+
+.contact-button:active {
+  box-shadow: 0 0 6px rgba(53, 184, 86, 0.5);
+}
+
+/* Responsive styling for screens 1024px to 701px (Tablet mode) */
+@media (max-width: 1024px) and (min-width: 701px) {
+  body, html {
+      height: 100%; /* Hauteur de la page */
+      margin: 0;
+      background: #eef2f3; /* Fond légèrement gris clair */
+      display: flex;
+      justify-content: center;
+      align-items: center; /* Centrage du contenu */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Changement de la police */
+  }
+
+  .contact-container {
+      max-width: 90%;
+      padding: 40px; /* Espacement interne */
+      background: #ffffff; /* Fond blanc pour le conteneur */
+      border-radius: 15px; /* Coins arrondis */
+      box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1); /* Ombre plus marquée */
+      transition: transform 0.3s ease; /* Effet d'animation lors du survol */
+  }
+
+  .contact-container:hover {
+      transform: translateY(-10px); /* Élève le conteneur au survol */
+  }
+
+  .contact-logo {
+      font-size: 2.5em; /* Taille du logo */
+      margin-bottom: 20px;
+      color: #4a4a4a; /* Couleur sombre pour le logo */
+      font-weight: bold; /* Gras pour le logo */
+      text-align: center; /* Centrer le texte */
+  }
+
+  .contact-label {
+      font-size: 16px; /* Taille de la police des étiquettes */
+      color: #6a6a6a; /* Couleur douce pour les étiquettes */
+      margin-bottom: 10px; /* Espacement accru */
+  }
+
+  .contact-input,
+  .contact-textarea {
+      padding: 12px 15px; /* Ajustement du rembourrage */
+      font-size: 16px; /* Taille de la police */
+      border: 1px solid #cccccc; /* Bordure grise */
+      border-radius: 8px; /* Coins arrondis */
+      transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Animation de la couleur de la bordure */
+  }
+
+  .contact-input:focus,
+  .contact-textarea:focus {
+      border-color: #007bff; /* Couleur bleu au focus */
+      box-shadow: 0 0 8px rgba(0, 123, 255, 0.4); /* Ombre au focus */
+      outline: none; /* Suppression de l'outline par défaut */
+  }
+
+  .contact-textarea {
+      min-height: 150px; /* Hauteur minimale */
+      resize: vertical; /* Permet de redimensionner verticalement */
+  }
+
+  .contact-button {
+      padding: 12px;
+      font-size: 16px;
+      background: #007bff; /* Couleur de fond bleu */
+      border: none; /* Suppression de la bordure */
+      border-radius: 8px; /* Coins arrondis */
+      color: #ffffff; /* Couleur du texte blanc */
+      cursor: pointer; /* Curseur de main */
+      transition: background-color 0.3s ease, transform 0.2s ease; /* Animation de la couleur de fond */
+  }
+
+  .contact-button:hover {
+      background-color: #0056b3; /* Couleur bleu foncé au survol */
+      transform: translateY(-2px); /* Légère élévation lors du survol */
+  }
+
+  .contact-button:active {
+      transform: translateY(1px); /* Légère descente lors du clic */
+  }
+
+  .contact-button span {
+      font-weight: bold; /* Texte en gras */
+  }
+}
+
+/* Responsive styling for screens 700px and below (Smartphone mode) */
+@media (max-width: 700px) {
+  body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f5f5f5;
+  }
+
+  .contact-container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 20px;
+    border-radius: 0;
+    box-shadow: none;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .contact-logo {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+  }
+
+  .contact-label {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .contact-input,
+  .contact-textarea {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 10px;
+  }
+
+  .contact-textarea {
+    min-height: 200px;
+  }
+
+  .contact-button {
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 10px;
+  }
+}

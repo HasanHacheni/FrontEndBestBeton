@@ -1,0 +1,17 @@
+body {
+    background-image: url("../public/image/BGBEST4.png");
+   
+    background-position:top;
+  }
+  
+  @media (max-width: 900px) {
+    body {
+      background-size: 100%; /* Adjusts for smaller screens */
+    }
+  }
+  
+  @media (min-width: 10111px) {
+    body {
+      background-size: 100%;
+    }
+  }
