@@ -1,6 +1,5 @@
-
 import React, { useState } from 'react';
-import InputForm from './imputform'; // Correct import
+import InputForm from './imputform';
 import Results from './Results';
 import SlabVisualization from './Slab3D';
 import { Link } from 'react-router-dom';
@@ -11,13 +10,11 @@ const SlabCalculator = () => {
   const [results, setResults] = useState(null);
   const [calculated, setCalculated] = useState(false);
   const [slabTypeMessage, setSlabTypeMessage] = useState('');
-  const  lien = 'https://bestbeton.com.tn/produit/plancher/dalle-alveolee/';
 
   const calculateSlab = ({ length, width, thickness, load, concreteStrength }) => {
     const areaLoad = load / (length * width);
     const momentResistance = (concreteStrength * width * thickness ** 2) / 6;
     const shearForce = areaLoad * length * width;
-    
 
     setResults({
       momentResistance,
@@ -42,45 +39,42 @@ const SlabCalculator = () => {
   };
 
   return (
-    <div className={`slab-calculator-container ${calculated ? 'calculated' : ''}`}>
-      <div className='header'>
-        <div className="logo">
-          <span className="best">BEST</span>
-          <span className="beton">BETON</span>
+      <div className={`slab-calculator-container ${calculated ? 'calculated' : ''}`}>
+        <div className='header'>
+          <div className="logo">
+            <span className="best">BEST</span>
+            <span className="beton">BETON</span>
+          </div>
+          <div className='title'>
+            <h1>Calculateur de Dalle en Béton</h1>
+          </div>
         </div>
-        <div className='title'>
-          <h1>Calculateur de Dalle en Béton</h1>
-        </div>
-      </div>
-      <div className='dal-calculator'>
-        <div className="slab-calculator">
-          <InputForm onCalculate={calculateSlab} />
+        <div className='dal-calculator'>
+          <div className="slab-calculator">
+            <InputForm onCalculate={calculateSlab} />
+          </div>
+          {calculated && (
+              <div className='threedd-calculator'>
+                <SlabVisualization
+                    width={slabData.width}
+                    length={slabData.length}
+                    thickness={slabData.thickness}
+                />
+              </div>
+          )}
         </div>
         {calculated && (
-          <div className='threedd-calculator'>
-            <SlabVisualization
-              width={slabData.width}
-              length={slabData.length}
-              thickness={slabData.thickness}
-            />
-          </div>
+            <div className='results-container'>
+              <Results results={results} />
+              <div className='slab-type-message'>
+                <p>{slabTypeMessage}</p>
+                <Link className="button-link" to="/Contact">
+                  Contactez-nous
+                </Link>
+              </div>
+            </div>
         )}
       </div>
-      {calculated && (
-        <div className='results-container'>
-          <Results results={results} />
-          <div className='slab-type-message'>
-            <p>{slabTypeMessage}</p>
-            <Link
-              className="button-link"
-              to={"/Contact"}
-            >
-              Contactez-nous
-            </Link>
-          </div>
-        </div>
-      )}
-    </div>
   );
 };
 

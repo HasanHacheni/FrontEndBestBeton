@@ -3,6 +3,7 @@ import './footer.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faLinkedin, faFacebook, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
+
 // Composant pour afficher les icônes sociales
 const SocialIcons = ({ icons }) => (
   <div className="social-icons">

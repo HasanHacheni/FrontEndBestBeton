@@ -1,17 +1,16 @@
-
 import React, { useState } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls } from '@react-three/drei';
 import InputForm from '../CalcDal/imputform';
 import Results from '../CalcDal/Results';
 import BeamModel from './BeamModel';
 import { Link } from 'react-router-dom';
-
 
 const SlabCalculator = () => {
   const [DesignPoutrelle, setDesignPoutrelle] = useState(null);
   const [results, setResults] = useState(null);
   const [calculated, setCalculated] = useState(false);
   const [slabTypeMessage, setSlabTypeMessage] = useState('');
-  const lien = 'https://bestbeton.com.tn/produit/plancher/dalle-alveolee/';
 
   const calculateSlab = ({ length, width, thickness, load, concreteStrength }) => {
     const areaLoad = load / (length * width);
@@ -41,48 +40,48 @@ const SlabCalculator = () => {
   };
 
   return (
-    <div className={`slab-calculator-container ${calculated ? 'calculated' : ''}`}>
-      <div className="header">
-        <div className="logo">
-          <span className="best">BEST</span>
-          <span className="beton">BETON</span>
-        </div>
-        <div className="title">
-          <h1>Calculateur de Poutrelle en Béton</h1>
-        </div>
-      </div>
-      <div className="dal-calculator">
-        <div className="slab-calculator">
-          <InputForm onCalculate={calculateSlab} />
-        </div>
-
-        {calculated && (
-          <div className="threedd-calculator" style={{ width: '100%', height: '500px' }}>
-            {/* Ensure BeamModel is wrapped by Canvas */}
-             <BeamModel
-                length={DesignPoutrelle.length}
-                width={DesignPoutrelle.width}
-                height={DesignPoutrelle.thickness}
-              />
-           
+      <div className={`slab-calculator-container ${calculated ? 'calculated' : ''}`}>
+        <div className="header">
+          <div className="logo">
+            <span className="best">BEST</span>
+            <span className="beton">BETON</span>
           </div>
+          <div className="title">
+            <h1>Calculateur de Poutrelle en Béton</h1>
+          </div>
+        </div>
+        <div className="dal-calculator">
+          <div className="slab-calculator">
+            <InputForm onCalculate={calculateSlab} />
+          </div>
+          {calculated && (
+              <div className="threedd-calculator" style={{ width: '100%', height: '500px' }}>
+                <Canvas camera={{ position: [0, 20, 20], fov: 30 }}>
+                  <ambientLight intensity={0.5} />
+                  <directionalLight position={[10, 10, 5]} intensity={5} />
+                  <directionalLight position={[-10, -10, -5]} intensity={3} />
+                  <BeamModel
+                      length={DesignPoutrelle.length}
+                      width={DesignPoutrelle.width}
+                      height={DesignPoutrelle.thickness}
+                  />
+                  <OrbitControls />
+                </Canvas>
+              </div>
+          )}
+        </div>
+        {calculated && (
+            <div className="results-container">
+              <Results results={results} />
+              <div className="slab-type-message">
+                <p>{slabTypeMessage}</p>
+                <Link className="button-link" to="/Contact">
+                  Contactez-nous
+                </Link>
+              </div>
+            </div>
         )}
       </div>
-      {calculated && (
-        <div className="results-container">
-          <Results results={results} />
-          <div className="slab-type-message">
-            <p>{slabTypeMessage}</p>
-            <Link
-              className="button-link"
-              to={"/Contact"}
-            >
-              Contactez-nous
-            </Link>
-          </div>
-        </div>
-      )}
-    </div>
   );
 };
 

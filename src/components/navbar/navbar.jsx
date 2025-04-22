@@ -3,6 +3,7 @@ import "./navbar.css";
 import { Link } from "react-router-dom";
 import { FaHome, FaServicestack, FaPhone } from "react-icons/fa";
 
+
 const Navbar = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
  
