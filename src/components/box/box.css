@@ -1,0 +1,225 @@
+/* Layout for the admin page with sidebar */
+.admin-layout {
+    display: flex;
+    min-height: 100vh; /* Ensure it takes the full viewport height */
+  }
+  
+  /* Sidebar styles */
+  .sidebar {
+    width: 250px; /* Fixed width for the sidebar */
+    background-color: #1f2937; /* Dark background for the sidebar */
+    color: white;
+    padding: 20px;
+    position: fixed; /* Fix the sidebar to the left */
+    top: 0;
+    left: 0;
+    height: 100%; /* Full height */
+    overflow-y: auto; /* Scroll if content overflows */
+  }
+  
+  /* Main content area */
+  .main-content {
+    margin-left: 250px; /* Offset by the sidebar width */
+    flex: 1; /* Take the remaining space */
+    padding: 20px;
+  }
+  
+  /* Inbox container */
+  .inbox-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px; /* Match the approximate width of the mobile view */
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Bulk actions */
+  .bulk-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+  }
+  
+  .bulk-actions label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .bulk-delete-btn {
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.2s ease;
+  }
+  
+  .bulk-delete-btn:hover {
+    background-color: #d43f3f;
+  }
+  
+  /* Email list */
+  .email-list {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  /* Individual email item */
+  .email-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border-bottom: 1px solid #e0e0e0;
+    background-color: #fff;
+    transition: background-color 0.2s ease;
+  }
+  
+  .email-item:last-child {
+    border-bottom: none;
+  }
+  
+  /* Highlighted email */
+  .email-item.highlighted {
+    background-color: #ffeb3b; /* Yellow highlight like in the image */
+  }
+  
+  /* Hover effect */
+  .email-item:hover {
+    background-color: #f5f5f5;
+  }
+  
+  /* Checkbox for email selection */
+  .email-checkbox {
+    margin-right: 10px;
+  }
+  
+  /* Sender icon */
+  .email-sender-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    margin-right: 15px;
+  }
+  
+  /* Specific colors for sender icons (based on the image) */
+  .email-item:nth-child(1) .email-sender-icon {
+    background-color: #ffa500; /* Amazon - Orange */
+  }
+  .email-item:nth-child(2) .email-sender-icon {
+    background-color: #ccc; /* WordPress - Gray */
+  }
+  .email-item:nth-child(3) .email-sender-icon {
+    background-color: #0077b5; /* LinkedIn - Blue */
+  }
+  .email-item:nth-child(4) .email-sender-icon {
+    background-color: #4285f4; /* Google - Blue */
+  }
+  .email-item:nth-child(5) .email-sender-icon {
+    background-color: #800080; /* ITBox - Purple */
+  }
+  .email-item:nth-child(6) .email-sender-icon {
+    background-color: #007bff; /* ArtStation - Blue */
+  }
+  .email-item:nth-child(7) .email-sender-icon {
+    background-color: #4a90e2; /* Unity - Light Blue */
+  }
+  .email-item:nth-child(8) .email-sender-icon {
+    background-color: #ccc; /* no-reply - Gray */
+  }
+  
+  /* Email content */
+  .email-content {
+    flex: 1;
+  }
+  
+  /* Email header (sender and date) */
+  .email-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  
+  .email-sender {
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .email-date {
+    font-size: 12px;
+    color: #666;
+  }
+  
+  /* Email subject */
+  .email-subject {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* Email snippet */
+  .email-snippet {
+    font-size: 12px;
+    color: #666;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* Delete button for individual emails */
+  .delete-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #ef4444;
+    padding: 5px;
+    transition: color 0.2s ease;
+  }
+  
+  .delete-btn:hover {
+    color: #d43f3f;
+  }
+  
+  /* Compose button */
+  .compose-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ff4444; /* Red color like in the image */
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s ease;
+  }
+  
+  .compose-btn:hover {
+    background-color: #e03e3e;
+  }

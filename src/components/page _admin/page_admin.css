@@ -1,0 +1,116 @@
+/* Sidebar.css */
+
+/* Reset + Modern font */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #333, #333);
+  color: #333;
+}
+
+/* Sidebar Container */
+.sidebar {
+  height: 100vh;
+  background: linear-gradient(145deg, #333, #333);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 15px 10px;
+  box-shadow: #333;
+  border-right: 1px solid #333;
+  transition: width 0.4s ease, box-shadow 0.4s ease;
+  transform-style: preserve-3d;
+}
+
+.sidebar.open {
+  width: 260px;
+}
+
+.sidebar.closed {
+  width: 70px;
+  align-items: center;
+}
+
+/* Toggle Button */
+.toggle-btn {
+  cursor: pointer;
+  text-align: center;
+  padding: 12px;
+  background: #333;
+  border-radius: 10px;
+  box-shadow: #333;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.toggle-btn:hover {
+  background: #333;
+  transform: scale(1.05);
+}
+
+/* Menu */
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+/* Sidebar.css */
+
+/* Supprimer la souligne des éléments de menu (enlever le texte souligné) */
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  margin: 6px 0;
+  border-radius: 12px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s, transform 0.2s ease-in-out;
+  text-decoration: none; /* Ici, on s'assure qu'aucune souligne n'est appliquée */
+}
+
+/* Supprimer la souligne au survol des éléments */
+.menu-item:hover {
+  background: #3498db;
+  transform: translateX(6px) scale(1.02);
+  text-decoration: none; /* Supprime la souligne au survol */
+}
+
+/* Style de texte du menu */
+.menu-text {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #ecf0f1;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0.85;
+}
+
+.menu-text:hover {
+  opacity: 1;
+}
+
+
+.sidebar.closed .menu-text {
+  display: none;
+}
+
+/* Profil */
+.profile {
+  margin-top: auto;
+  padding: 12px;
+  background: #1c1c2e;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.4);
+  transition: background 0.3s ease;
+  font-size: 16px; /* Taille de texte ajustée pour un aspect équilibré */
+}
+
+.profile:hover {
+  background: #333;
+}

@@ -1,0 +1,110 @@
+
+  
+  .article-container {
+    max-width: 700px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #1f2937;
+  }
+  
+  .article-form input[type="text"],
+  .article-form input[type="file"],
+  .article-form button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  
+  .article-form button {
+    background-color: #3b82f6;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .article-form button:hover {
+    background-color: #2563eb;
+  }
+  
+  .image-preview {
+    margin-top: 10px;
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+  }
+  
+  .article-list {
+    margin-top: 40px;
+  }
+  
+  .article-card {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+  }
+  
+  .article-card:hover {
+    transform: scale(1.01);
+  }
+  
+  .article-card h3 {
+    margin: 0;
+    color: #111827;
+  }
+  
+  .article-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    object-fit: cover;
+    max-height: 180px;
+  }
+  
+  .actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .actions button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .actions button:hover {
+    transform: scale(1.05);
+  }
+  
+  .actions button:first-child {
+    background-color: #10b981; /* Modifier */
+  }
+  
+  .actions button:last-child {
+    background-color: #ef4444; /* Supprimer */
+  }
+  

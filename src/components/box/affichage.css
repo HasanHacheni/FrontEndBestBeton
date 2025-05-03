@@ -1,0 +1,114 @@
+/* Contexte de la page avec un béton moderne animé */
+.orders-container {
+  padding: 60px 30px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #2d2d2d,#333);
+  background-size: 300% 300%;
+  animation: backgroundMove 20s ease-in-out infinite;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Animation de fond : Déplacement dynamique du béton */
+@keyframes backgroundMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Titre avec un effet futuriste */
+.orders-title {
+  font-size: 3rem;
+  margin-bottom: 50px;
+  color: #f5f5f5;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  background: linear-gradient(90deg, #f5c518, #f5c518);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textPulse 3s ease-in-out infinite;
+}
+
+/* Animation pulsée du texte */
+@keyframes textPulse {
+  0% { transform: scale(1); text-shadow: 0 0 5px #f5c518, 0 0 10px #f5c518; }
+  50% { transform: scale(1.05); text-shadow: 0 0 15px #f5c518, 0 0 20px #f5c518; }
+  100% { transform: scale(1); text-shadow: 0 0 5px #f5c518 0 0 10px #f5c518; }
+}
+
+/* Grille des commandes */
+.orders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Carte de commande avec animation 3D */
+.order-card {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 25px;
+  padding: 35px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  transition: transform 0.5s ease-out, box-shadow 0.5s ease-out;
+  perspective: 1500px;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+/* Effet de rotation et zoom au survol */
+.order-card:hover {
+  transform: rotateY(10deg) rotateX(10deg) scale(1.08);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.3);
+}
+
+/* Nom de la commande avec style */
+.order-name {
+  font-size: 2rem;
+  color: #f5c518;
+  margin-bottom: 15px;
+  font-weight: 800;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Texte de la carte de commande */
+.order-card p {
+  font-size: 1.1rem;
+  margin: 10px 0;
+  color: #333;
+  line-height: 1.8;
+}
+
+/* Mise en valeur des éléments clés dans la carte */
+.order-card strong {
+  color: #111;
+  font-weight: bold;
+}
+
+/* Ombre dynamique sous les cartes */
+.order-card::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 20px;
+  background: rgba(0,0,0,0.2);
+  border-radius: 50%;
+  filter: blur(8px);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+/* Effet au survol des cartes : ombre plus marquée */
+.order-card:hover::after {
+  width: 90%;
+  height: 30px;
+  opacity: 1;
+}

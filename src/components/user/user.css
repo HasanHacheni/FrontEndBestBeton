@@ -1,0 +1,155 @@
+/* Layout for the admin page with sidebar */
+.admin-layout {
+  display: flex;
+  min-height: 100vh; /* Ensure it takes the full viewport height */
+}
+
+/* Sidebar styles */
+.sidebar {
+  width: 250px; /* Fixed width for the sidebar */
+  background-color: #1f2937; /* Dark background for the sidebar */
+  color: white;
+  padding: 20px;
+  position: fixed; /* Fix the sidebar to the left */
+  top: 0;
+  left: 0;
+  height: 100%; /* Full height */
+  overflow-y: auto; /* Scroll if content overflows */
+}
+
+/* Main content area */
+.main-content {
+  margin-left: 250px; /* Offset by the sidebar width */
+  flex: 1; /* Take the remaining space */
+  padding: 20px;
+}
+
+/* Construction theme background for the entire container */
+.construction-theme {
+  position: relative;
+  background-color: transparent; /* Remove the fallback background color */
+  background-size: cover;
+  min-height: 100vh; /* Ensure it covers the viewport */
+  padding: 20px;
+}
+
+/* Frame style similar to the image */
+.frame {
+  border: 2px solid white; /* White border like in the image */
+  border-radius: 16px; /* Rounded corners */
+  background: #fff; /* Ensure no background fill */
+  padding: 20px;
+  position: relative;
+  margin: 20px 0; /* Add some spacing */
+}
+
+/* Remove the white background for the table and modal content */
+.user-table,
+.modal-content {
+  background:#fff; /* Remove the semi-transparent white background */
+  border-radius: 12px;
+}
+
+/* Ensure the modal overlay doesn't obscure the background */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Style for the modal content to fit within the frame */
+.modal-content {
+  max-width: 500px;
+  width: 100%;
+}
+
+/* Adjust button styles to fit the construction theme */
+.add-user-btn,
+.modal-actions button {
+  background-color: #3b82f6; /* Blue to match the professional theme */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-user-btn:hover,
+.modal-actions button:hover {
+  background-color: #2563eb;
+}
+
+/* Edit and delete buttons */
+.edit-btn {
+  background-color: #10b981;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.delete-btn {
+  background-color: #ef4444;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.edit-btn:hover,
+.delete-btn:hover {
+  opacity: 0.9;
+}
+
+/* Table styles */
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.user-table th,
+.user-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.user-table th {
+  background-color: transparent; /* Remove the light gray background for table headers */
+  font-weight: 600;
+}
+
+/* Form input styles */
+.modal-content label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background-color: #f9fafb; /* Keep the input background for better visibility */
+  outline: none;
+  transition: border 0.2s;
+}
+
+.modal-content input:focus {
+  border-color: #3b82f6;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
